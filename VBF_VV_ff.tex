@@ -1,11 +1,16 @@
 \documentclass[landscape]{article}
 
+\usepackage[margin=0.2in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{subfig}
+\DeclareGraphicsRule{*}{mps}{*}{} 
+
 \usepackage{tikz}
 \usepackage{feynman}
 \usepackage[compat=1.1.0]{tikz-feynman}
 
 \begin{document}
-
+\resizebox{3.5\width}{!}{
 \begin{tikzpicture}[nodes=circle]
 \begin{feynman}[tree layout]
 \vertex [blob, fill=black] (c) at ( 0, 0) {};
@@ -33,5 +38,5 @@
 };
 \end{feynman}
 \end{tikzpicture}
-
+}
 \end{document} 
