@@ -5,11 +5,17 @@
 convert -density 300 file.pdf -quality 90 file.png
 ```
 
+for mac:
 
-VBF-VV-ff | VBF-VV-gg
+```bash
+sips -s format png VBF_VV_ff.pdf --out VBF_VV_ff.png
+```
+
+## List of feynman diagrams
+
+
+VV->VV | WV->WV->LNuQQ
 :-:|:-:
-![VBF](VBF_VV_ff.png) | ![VBF](VBF_VV_ff.png) |
-VBF-VV-ff | VBF-VV-gg
-![VBF](VBF_VV_ff.png) | ![VBF](VBF_VV_ff.png) |
-VBF-VV-ff | VBF-VV-gg
-![VBF](VBF_VV_ff.png) | ![VBF](VBF_VV_ff.png) |
+![VBF](VBF_VV_VV.png) | ![VBF](pp_WV_LNuQQ.png) |
+VBF-VV-ff |   | 
+![VBF](pp_ZV_LNuQQ.png) |  |

@@ -1,0 +1,42 @@
+\documentclass[landscape]{article}
+
+\usepackage[margin=0.2in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{subfig}
+\DeclareGraphicsRule{*}{mps}{*}{} 
+
+\usepackage{tikz}
+\usepackage{feynman}
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\begin{document}
+\resizebox{3.5\width}{!}{
+\begin{tikzpicture}[nodes=circle]
+\begin{feynman}[tree layout]
+\vertex [blob, fill=black] (c) at ( 0, 0) {};
+\vertex [above left=of c] (b);
+\vertex [left=of b] (a) {q};
+\vertex [above right=of b] (f1) {$q$};
+\vertex [below left=of c] (d);
+\vertex [left=of d] (e) {$\anti{q}$};
+\vertex [below right=of d] (f4) {$\anti{q}$};
+\vertex [above right=of c] (g);
+\vertex [below right=of c] (h);
+\vertex [above right=of g] (f5) {$f$};
+\vertex [below right=of g] (f6) {$\bar{f}$};
+\vertex [right=of h] (f7) {$f$};
+\vertex [below right=of h] (f8) {$\bar{f}$};
+\diagram* {
+(c) -- [boson, edge label=V] (b),
+(c) -- [boson, edge label=V] (d),
+(a) -- [fermion] (b) -- [fermion] (f1),
+(e) -- [anti fermion] (d) -- [anti fermion] (f4),
+(c) -- [boson, edge label=V] (g) -- [fermion] (f5),
+(g) -- [anti fermion] (f6),
+(c) -- [boson, edge label=V] (h) -- [fermion] (f7),
+(h) -- [anti fermion] (f8),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+\end{document} 
