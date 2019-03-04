@@ -1,0 +1,38 @@
+\documentclass[landscape]{article}
+
+\usepackage[margin=0.2in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{subfig}
+\DeclareGraphicsRule{*}{mps}{*}{} 
+
+\usepackage{tikz}
+\usepackage{feynman}
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\begin{document}
+\resizebox{3.5\width}{!}{
+\begin{tikzpicture}
+\begin{feynman}[tree layout]
+  \vertex (c);
+  \vertex [right=of c] (g);
+\vertex [above left=of c] (b);
+\vertex [left=of b] (a) {q};
+\vertex [above right=of b] (f1) {$q$};
+\vertex [below left=of c] (d);
+\vertex [left=of d] (e) {$\anti{q}$};
+\vertex [below right=of d] (f4) {$\anti{q}$};
+\vertex [above right=of g] (f2);
+  \vertex [below right=of g] (f3);
+\diagram* {
+(c) -- [scalar, edge label=H$^\pm$] (g);
+(c) -- [boson, edge label=Z] (b),
+(c) -- [boson, edge label=W$^\pm$] (d),
+(a) -- [fermion] (b) -- [fermion] (f1),
+(e) -- [anti fermion] (d) -- [anti fermion] (f4),
+(g) -- [boson, edge label=Z] (f2),
+(g) -- [boson, edge label=W$^\pm$] (f3),
+};
+\end{feynman}
+\end{tikzpicture}
+}
+\end{document} 
